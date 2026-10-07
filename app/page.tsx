@@ -3,10 +3,10 @@
 import { FormEvent, useEffect, useRef, useState } from "react";
 
 const services = [
-  { n: "01", title: "01 — Personalizados e presentes", text: <>Transformamos pessoas, pets e momentos especiais em peças únicas.<br /><br />Chaveiros personalizados, miniaturas de pets, bonecos chibi, estilo Funko, casais, famílias, lembranças e presentes feitos especialmente para você.</>, benefit: "Da ideia para a realidade", image: "/Lampada_7.webp", position: "center" },
+  { n: "01", title: "01 — Personalizados e presentes", text: <>Transformamos pessoas, pets e momentos especiais em peças únicas.<br /><br />Chaveiros personalizados, miniaturas de pets, bonecos chibi, estilo Funko, casais, famílias, lembranças e presentes feitos especialmente para você.</>, benefit: "Da ideia para a realidade", image: "/Boneco_7.webp", position: "center" },
   { n: "02", title: "02 — Modelagem e impressão 3D", text: <>Tem uma ideia, mas ainda não possui o arquivo 3D?<br /><br />Desenvolvemos o projeto e produzimos sua peça de acordo com as medidas, referências e necessidades apresentadas.<br /><br /></>, benefit: "Sua criação ganha forma", image: "/Estante.webp", position: "center" },
-  { n: "03", title: "03 — Brindes e projetos corporativos", text: <>Transforme sua marca em algo que seus clientes realmente queiram guardar.<br /><br />Criamos brindes personalizados, chaveiros, porta-copos, porta-canetas, suportes, troféus, placas, displays e peças exclusivas para empresas, eventos e ações promocionais.<br /><br /></>, benefit: "Uma peça verdadeiramente sua", image: "/Boneco_7.webp", position: "center" },
-  { n: "04", title: "04 — Projetos especiais", text: <>Algumas ideias não cabem em um catálogo — e é justamente aí que entramos.<br /><br />Criamos peças exclusivas a partir de referências, desenhos, medidas ou necessidades específicas.<br /><br />Se você consegue imaginar, converse com a gente sobre a possibilidade de transformar em 3D.</>, benefit: "Sua marca em forma de objeto", image: "/Placa_7.jpeg", position: "center" },
+  { n: "03", title: "03 — Brindes e projetos corporativos", text: <>Transforme sua marca em algo que seus clientes realmente queiram guardar.<br /><br />Criamos brindes personalizados, como baterias, chaveiros, porta-copos, porta-canetas, suportes, troféus, placas, displays e peças exclusivas para empresas, eventos e ações promocionais.<br /><br /></>, benefit: "Uma peça verdadeiramente sua", image: "/Placa_7.jpeg", position: "center" },
+  { n: "04", title: "04 — Projeto técnico", text: <>Algumas ideias não cabem em um catálogo — e é justamente aí que entramos.<br /><br />Criamos peças exclusivas a partir de referências, desenhos, medidas ou necessidades específicas.<br /><br />Se você consegue imaginar, converse com a gente sobre a possibilidade de transformar em 3D.</>, benefit: "Sua marca em forma de objeto", image: "/Corporativo_1.webp", position: "center" },
 ];
 
 const processSteps = [
@@ -94,27 +94,27 @@ const projectCarousels = [
     isMain: true,
     slides: [
       {
-        image: "/No_sei_2_otimizado.webp",
-        tag: "PERSONALIZADO",
-        category: "ORGANIZAÇÃO E DECORAÇÃO",
-        title: "Conjunto de porta-objetos",
-        specs: "DOIS MÓDULOS · TAMPA REMOVÍVEL · ACABAMENTO TEXTURIZADO",
-        cropClass: "crop-b"
+        image: "/Boneco_7.webp",
+        tag: "PRESENTE PERSONALIZADO",
+        category: "MINIATURA E LEMBRANÇA",
+        title: "Boneco personalizado",
+        specs: "MODELAGEM SOB MEDIDA · DETALHES EXCLUSIVOS · PRESENTE ÚNICO",
+        cropClass: "crop-a"
       },
       {
-        image: "/Castelo_otimizado.webp",
-        tag: "PERSONALIZADO",
-        category: "DECORAÇÃO TEMÁTICA",
-        title: "Globo iluminado com castelo",
-        specs: "CÚPULA DECORATIVA · ILUMINAÇÃO INTERNA · BASE PERSONALIZADA",
+        image: "/Corporativo_1.webp",
+        tag: "PROJETOS TÉCNICOS",
+        category: "PROJETOS TÉCNICOS",
+        title: "Personagem Pneumax",
+        specs: "IDENTIDADE VISUAL APLICADA · ESCULTURA 3D · PINTURA PERSONALIZADA",
         cropClass: "crop-c"
       },
       {
-        image: "/No_sei_otimizado.webp",
-        tag: "PERSONALIZADO",
-        category: "ORGANIZAÇÃO PARA AMBIENTES",
-        title: "Organizador modular de bancada",
-        specs: "DIVISÓRIAS FUNCIONAIS · DESIGN COMPACTO · PROJETO SOB MEDIDA",
+        image: "/Corporativo_2_melhorado.webp",
+        tag: "PROJETOS TÉCNICOS",
+        category: "PROJETOS TÉCNICOS",
+        title: "Mascote PMX Pneus",
+        specs: "PERSONAGEM TEMÁTICO · ELEMENTOS DA MARCA · ACABAMENTO PREMIUM",
         cropClass: "crop-a"
       }
     ]
@@ -156,16 +156,16 @@ const projectCarousels = [
     slides: [
       {
         image: "/Corporativo_1.webp",
-        tag: "CORPORATIVO",
-        category: "MASCOTE CORPORATIVO",
+        tag: "PROJETOS TÉCNICOS",
+        category: "PROJETOS TÉCNICOS",
         title: "Personagem Pneumax",
         specs: "IDENTIDADE VISUAL APLICADA · ESCULTURA 3D · PINTURA PERSONALIZADA",
         cropClass: "crop-c"
       },
       {
         image: "/Corporativo_2_melhorado.webp",
-        tag: "CORPORATIVO",
-        category: "MASCOTE PARA MARCAS",
+        tag: "PROJETOS TÉCNICOS",
+        category: "PROJETOS TÉCNICOS",
         title: "Mascote PMX Pneus",
         specs: "PERSONAGEM TEMÁTICO · ELEMENTOS DA MARCA · ACABAMENTO PREMIUM",
         cropClass: "crop-a"

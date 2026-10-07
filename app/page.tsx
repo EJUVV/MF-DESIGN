@@ -38,9 +38,11 @@ const processSteps = [
     desc: "Após a aprovação, iniciamos a impressão e realizamos os acabamentos necessários.",
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <polyline points="6 9 6 2 18 2 18 9"></polyline>
-        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
-        <rect x="6" y="14" width="12" height="8"></rect>
+        <path d="M4 3h16v18H4z"></path>
+        <path d="M7 6h10"></path>
+        <path d="M12 6v4"></path>
+        <path d="m10 10 2-2 2 2-2 2-2-2z"></path>
+        <path d="M8 18h8l-1-4h-6l-1 4z"></path>
       </svg>
     ),
   },
@@ -93,7 +95,7 @@ const projectCarousels = [
     slides: [
       {
         image: "/No_sei_2_otimizado.webp",
-        tag: "SOB ENCOMENDA",
+        tag: "PERSONALIZADO",
         category: "ORGANIZAÇÃO E DECORAÇÃO",
         title: "Conjunto de porta-objetos",
         specs: "DOIS MÓDULOS · TAMPA REMOVÍVEL · ACABAMENTO TEXTURIZADO",
@@ -101,7 +103,7 @@ const projectCarousels = [
       },
       {
         image: "/Castelo_otimizado.webp",
-        tag: "SOB ENCOMENDA",
+        tag: "PERSONALIZADO",
         category: "DECORAÇÃO TEMÁTICA",
         title: "Globo iluminado com castelo",
         specs: "CÚPULA DECORATIVA · ILUMINAÇÃO INTERNA · BASE PERSONALIZADA",
@@ -109,7 +111,7 @@ const projectCarousels = [
       },
       {
         image: "/No_sei_otimizado.webp",
-        tag: "SOB ENCOMENDA",
+        tag: "PERSONALIZADO",
         category: "ORGANIZAÇÃO PARA AMBIENTES",
         title: "Organizador modular de bancada",
         specs: "DIVISÓRIAS FUNCIONAIS · DESIGN COMPACTO · PROJETO SOB MEDIDA",
@@ -123,7 +125,7 @@ const projectCarousels = [
     slides: [
       {
         image: "/Gatinho_otimizado.webp",
-        tag: "PERSONALIZADO",
+        tag: "SOB ENCOMENDA",
         category: "HOMENAGEM PERSONALIZADA",
         title: "Heroína dos Gatinhos",
         specs: "MINIATURA TEMÁTICA · MEDALHA PERSONALIZADA · PINTURA COLORIDA",
@@ -131,7 +133,7 @@ const projectCarousels = [
       },
       {
         image: "/Cachorrosoucachorronao_otimizado.webp",
-        tag: "PERSONALIZADO",
+        tag: "SOB ENCOMENDA",
         category: "PERSONALIZAÇÃO PET",
         title: "Memorial personalizado do seu pet",
         specs: "MINIATURA REALISTA · QUADRO ILUSTRADO · BASE DECORATIVA",
@@ -139,7 +141,7 @@ const projectCarousels = [
       },
       {
         image: "/Boneco_9_otimizado.webp",
-        tag: "PERSONALIZADO",
+        tag: "SOB ENCOMENDA",
         category: "MINIATURA SOB MEDIDA",
         title: "Retrato em miniatura",
         specs: "PERSONAGEM PERSONALIZADO · ACESSÓRIO MODELADO · BASE ILUSTRADA",
@@ -266,29 +268,38 @@ function WhatsappIcon({ size = 18, style = {} }: { size?: number; style?: React.
   );
 }
 
+function InstagramIcon({ size = 22 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
 function ServicesCarousel({ onOpenGallery }: { onOpenGallery: (src: string, trigger: HTMLElement) => void }) {
   const [current, setCurrent] = useState(0);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
   const [isHovered, setIsHovered] = useState(false);
-
-  const extendedServices = [...services, ...services];
+  const servicePages = [services.slice(0, 2), services.slice(2, 4)];
 
   const prevSlide = () => {
-    setCurrent((prev) => (prev === 0 ? services.length - 1 : prev - 1));
+    setCurrent((prev) => Math.max(0, prev - 1));
   };
 
   const nextSlide = () => {
-    setCurrent((prev) => (prev + 1) % services.length);
+    setCurrent((prev) => Math.min(servicePages.length - 1, prev + 1));
   };
 
   useEffect(() => {
-    if (isHovered) return;
-    const timer = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % services.length);
+    if (isHovered || current === servicePages.length - 1) return;
+    const timer = window.setTimeout(() => {
+      setCurrent((prev) => Math.min(servicePages.length - 1, prev + 1));
     }, 5000);
-    return () => clearInterval(timer);
-  }, [isHovered]);
+    return () => window.clearTimeout(timer);
+  }, [current, isHovered, servicePages.length]);
 
   const handleTouchStart = (e: React.TouchEvent) => {
     setTouchEnd(null);
@@ -316,23 +327,13 @@ function ServicesCarousel({ onOpenGallery }: { onOpenGallery: (src: string, trig
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="services-carousel-header">
-        <div className="carousel-dots services-dots">
-          {services.map((s, idx) => (
-            <button
-              key={s.n}
-              className={`dot ${idx === current ? "active" : ""}`}
-              onClick={() => setCurrent(idx)}
-              aria-label={`Ir para ${s.title}`}
-            />
-          ))}
-        </div>
         <div className="services-carousel-nav">
-          <button className="carousel-btn-nav" onClick={prevSlide} aria-label="Anterior">
+          <button className="carousel-btn-nav" onClick={prevSlide} aria-label="Anterior" disabled={current === 0}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <polyline points="15 18 9 12 15 6"></polyline>
             </svg>
           </button>
-          <button className="carousel-btn-nav" onClick={nextSlide} aria-label="Próximo">
+          <button className="carousel-btn-nav" onClick={nextSlide} aria-label="Próximo" disabled={current === servicePages.length - 1}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <polyline points="9 18 15 12 9 6"></polyline>
             </svg>
@@ -346,34 +347,34 @@ function ServicesCarousel({ onOpenGallery }: { onOpenGallery: (src: string, trig
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
-        <div 
+        <div
           className="services-carousel-track"
           style={{
-            transform: `translateX(calc(-${current} * (100% / var(--services-visible) + var(--services-gap) / var(--services-visible))))`
+            transform: `translateX(-${current * 100}%)`
           }}
         >
-          {extendedServices.map((s, idx) => {
-            const isOriginalIndex = (idx % services.length) === current;
-            return (
-              <article 
-                className={`service-card ${isOriginalIndex ? "card-active" : ""}`} 
-                key={`${s.n}-${idx}`}
-                onClick={() => setCurrent(idx % services.length)}
-                style={{
-                  backgroundImage: `url('${s.image}')`,
-                  backgroundPosition: s.position,
-                }}
-              >
-                <div className="card-top">
-                  <span>{s.n}</span>
-                  <button className="service-image-trigger" type="button" aria-label={`Ampliar imagem: ${s.title}`} onClick={(event) => { event.stopPropagation(); onOpenGallery(s.image, event.currentTarget); }}>↗</button>
-                </div>
-                <h3>{s.title}</h3>
-                <p>{s.text}</p>
-                <div className="benefit">{s.benefit}</div>
-              </article>
-            );
-          })}
+          {servicePages.map((page, pageIndex) => (
+            <div className="services-carousel-page" key={page[0].n} aria-hidden={pageIndex !== current}>
+              {page.map((service) => (
+                <article
+                  className={`service-card ${pageIndex === current ? "card-active" : ""}`}
+                  key={service.n}
+                  style={{
+                    backgroundImage: `url('${service.image}')`,
+                    backgroundPosition: service.position,
+                  }}
+                >
+                  <div className="card-top">
+                    <span>{service.n}</span>
+                    <button className="service-image-trigger" type="button" tabIndex={pageIndex === current ? 0 : -1} aria-label={`Ampliar imagem: ${service.title}`} onClick={(event) => { event.stopPropagation(); onOpenGallery(service.image, event.currentTarget); }}>↗</button>
+                  </div>
+                  <h3>{service.title.replace(/^\d+\s—\s/, "")}</h3>
+                  <p>{service.text}</p>
+                  <div className="benefit">{service.benefit}</div>
+                </article>
+              ))}
+            </div>
+          ))}
         </div>
       </div>
     </div>
@@ -539,11 +540,11 @@ export default function Home() {
       <ServicesCarousel onOpenGallery={openGallery} />
     </section>
 
-    <section className="process section" id="processo">
-      <div className="section-number reveal">COMO FUNCIONA</div>
-      <div className="process-head reveal"><p className="eyebrow dark-gold">Simples do início ao fim</p><h2>Da sua ideia<br />à <span>peça pronta.</span></h2></div>
-      <div className="timeline">{processSteps.map((step) => <div className="step reveal" key={step.n}><span className="step-icon">{step.icon}</span><div><h3>{step.title}</h3><p>{step.desc}</p></div></div>)}</div>
-    </section>
+    <div className="section-divider" aria-hidden="true">
+      <span />
+      <i />
+      <span />
+    </div>
 
     <section className="portfolio section" id="portfolio">
       <div className="section-number reveal">PROJETOS EM DESTAQUE</div>
@@ -563,6 +564,12 @@ export default function Home() {
           <ProjectCard key={p.id} project={p} onOpenGallery={openGallery} />
         ))}
       </div>
+    </section>
+
+    <section className="process section" id="processo">
+      <div className="section-number reveal">COMO FUNCIONA</div>
+      <div className="process-head reveal"><p className="eyebrow dark-gold">Simples do início ao fim</p><h2>Da sua ideia<br />à <span>peça pronta.</span></h2></div>
+      <div className="timeline">{processSteps.map((step) => <div className="step reveal" key={step.n}><span className="step-icon">{step.icon}</span><div><h3>{step.title}</h3><p>{step.desc}</p></div></div>)}</div>
     </section>
 
     <section className="google-reviews section">
@@ -777,9 +784,9 @@ export default function Home() {
         <h2>Tem uma ideia?<br /><span>Vamos transformá-la em realidade.</span></h2>
         <p>Envie sua foto, referência, medida, projeto ou simplesmente conte o que você gostaria de criar.</p>
         <p>Nossa equipe analisa sua ideia e orienta você sobre as melhores possibilidades de produção.</p>
-        <a className="contact-whatsapp-btn" href="https://wa.me/5527997845945" target="_blank" rel="noreferrer">
-          <WhatsappIcon size={22} />
-          <span>PEDIR MEU ORÇAMENTO PELO WHATSAPP</span>
+        <a className="instagram-btn" href="https://www.instagram.com/mfdesign_model/" target="_blank" rel="noreferrer" aria-label="Conhecer o Instagram da MF Design">
+          <InstagramIcon size={22} />
+          <span>CONHECER NOSSO INSTAGRAM</span>
           <i>↗</i>
         </a>
       </div>

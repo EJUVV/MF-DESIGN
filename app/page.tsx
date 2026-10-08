@@ -3,8 +3,8 @@
 import { FormEvent, useEffect, useRef, useState } from "react";
 
 const services = [
-  { n: "01", title: "01 — Personalizados e presentes", text: <>Transformamos pessoas, pets e momentos especiais em peças únicas.<br /><br />Chaveiros personalizados, miniaturas de pets, bonecos chibi, estilo Funko, casais, famílias, lembranças e presentes feitos especialmente para você.</>, benefit: "Da ideia para a realidade", image: "/MF%20DESIGN%20Pictures/Personalizados(1).jpg", position: "center" },
-  { n: "02", title: "02 — Modelagem e impressão 3D", text: <>Tem uma ideia, mas ainda não possui o arquivo 3D?<br /><br />Desenvolvemos o projeto e produzimos sua peça de acordo com as medidas, referências e necessidades apresentadas.<br /><br /></>, benefit: "Sua criação ganha forma", image: "/Modelagem.jpeg", position: "center" },
+  { n: "01", title: "01 — Personalizados e presentes", text: <>Transformamos pessoas, pets e momentos especiais em peças únicas.<br /><br />Chaveiros personalizados, miniaturas de pets, bonecos chibi, estilo Funko, casais, famílias, lembranças e presentes feitos especialmente para você.</>, benefit: "Da ideia para a realidade", image: "/Boneco_7.webp", position: "center" },
+  { n: "02", title: "02 — Modelagem e impressão 3D", text: <>Tem uma ideia, mas ainda não possui o arquivo 3D?<br /><br />Desenvolvemos o projeto e produzimos sua peça de acordo com as medidas, referências e necessidades apresentadas.<br /><br /></>, benefit: "Sua criação ganha forma", image: "/MF%20DESIGN%20Pictures/Modelagem.jpg", position: "center" },
   { n: "03", title: "03 — Brindes e projetos corporativos", text: <>Transforme sua marca em algo que seus clientes realmente queiram guardar.<br /><br />Criamos brindes personalizados, como baterias, chaveiros, porta-copos, porta-canetas, suportes, troféus, placas, displays e peças exclusivas para empresas, eventos e ações promocionais.<br /><br /></>, benefit: "Uma peça verdadeiramente sua", image: "/MF%20DESIGN%20Pictures/Brinde%20corporativo.jpg", position: "center" },
   { n: "04", title: "04 — Projeto técnico", text: <>Algumas ideias não cabem em um catálogo — e é justamente aí que entramos.<br /><br />Criamos peças exclusivas a partir de referências, desenhos, medidas ou necessidades específicas.<br /><br />Se você consegue imaginar, converse com a gente sobre a possibilidade de transformar em 3D.</>, benefit: "Sua marca em forma de objeto", image: "/MF%20DESIGN%20Pictures/Pe%C3%A7a%20t%C3%A9cnica.jpg", position: "center" },
 ];
@@ -102,20 +102,12 @@ const projectCarousels = [
         cropClass: "crop-a"
       },
       {
-        image: "/MF%20DESIGN%20Pictures/Pe%C3%A7a%20t%C3%A9cnica(1).jpg",
-        tag: "PROJETOS TÉCNICOS",
-        category: "PROJETOS TÉCNICOS",
-        title: "Componente técnico sob medida",
-        specs: "PROJETO PERSONALIZADO · PEÇA FUNCIONAL · IMPRESSÃO 3D",
+        image: "/MF%20DESIGN%20Pictures/Personalizados(1).jpg",
+        tag: "PRESENTE PERSONALIZADO",
+        category: "CHAVEIRO PERSONALIZADO",
+        title: "Miniatura de pet personalizada",
+        specs: "RETRATO DO SEU PET · ACESSÓRIO EXCLUSIVO · PRESENTE ÚNICO",
         cropClass: "crop-c"
-      },
-      {
-        image: "/MF%20DESIGN%20Pictures/Pe%C3%A7a%20t%C3%A9cnica.jpg",
-        tag: "PROJETOS TÉCNICOS",
-        category: "PROJETOS TÉCNICOS",
-        title: "Peça técnica funcional",
-        specs: "MODELAGEM SOB MEDIDA · PROJETO FUNCIONAL · ACABAMENTO PRECISO",
-        cropClass: "crop-a"
       }
     ]
   },
@@ -138,16 +130,7 @@ const projectCarousels = [
         title: "Porta-copos com olho grego",
         specs: "CONJUNTO PERSONALIZADO · SUPORTE INCLUSO · FEITO SOB ENCOMENDA",
         cropClass: "crop-a"
-      },
-      {
-        image: "/MF%20DESIGN%20Pictures/Sob%20encomenda(2).jpg",
-        tag: "SOB ENCOMENDA",
-        category: "PEÇA FUNCIONAL PERSONALIZADA",
-        title: "Componente técnico personalizado",
-        specs: "FORMATO SOB MEDIDA · IMPRESSÃO 3D · FEITO SOB ENCOMENDA",
-        cropClass: "crop-a"
       }
-      
     ]
   },
   {
@@ -155,19 +138,19 @@ const projectCarousels = [
     isMain: false,
     slides: [
       {
-        image: "/MF%20DESIGN%20Pictures/Brinde%20corporativo(2).jpg",
-        tag: "BRINDES CORPORATIVOS",
-        category: "BRINDES PERSONALIZADOS",
-        title: "Bateria personalizada Heliar",
-        specs: "MARCA EM DESTAQUE · DESIGN EXCLUSIVO · BRINDE CORPORATIVO",
+        image: "/MF%20DESIGN%20Pictures/Pe%C3%A7a%20t%C3%A9cnica(1).jpg",
+        tag: "PROJETOS TÉCNICOS",
+        category: "PROJETOS TÉCNICOS",
+        title: "Peça técnica funcional",
+        specs: "PROJETO PERSONALIZADO · PEÇA FUNCIONAL · IMPRESSÃO 3D",
         cropClass: "crop-c"
       },
       {
-        image: "/MF%20DESIGN%20Pictures/Brinde%20corporativo(3).jpg",
-        tag: "BRINDES CORPORATIVOS",
-        category: "BRINDES PERSONALIZADOS",
-        title: "Placa institucional personalizada",
-        specs: "IDENTIDADE VISUAL · DESIGN SOB MEDIDA · PEÇA CORPORATIVA",
+        image: "/MF%20DESIGN%20Pictures/Pe%C3%A7a%20t%C3%A9cnica.jpg",
+        tag: "PROJETOS TÉCNICOS",
+        category: "PROJETOS TÉCNICOS",
+        title: "Componente técnico sob medida",
+        specs: "MODELAGEM SOB MEDIDA · PROJETO FUNCIONAL · ACABAMENTO PRECISO",
         cropClass: "crop-a"
       }
     ]

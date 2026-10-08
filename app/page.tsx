@@ -3,10 +3,10 @@
 import { FormEvent, useEffect, useRef, useState } from "react";
 
 const services = [
-  { n: "01", title: "01 — Personalizados e presentes", text: <>Transformamos pessoas, pets e momentos especiais em peças únicas.<br /><br />Chaveiros personalizados, miniaturas de pets, bonecos chibi, estilo Funko, casais, famílias, lembranças e presentes feitos especialmente para você.</>, benefit: "Da ideia para a realidade", image: "/Boneco_7.webp", position: "center" },
+  { n: "01", title: "01 — Personalizados e presentes", text: <>Transformamos pessoas, pets e momentos especiais em peças únicas.<br /><br />Chaveiros personalizados, miniaturas de pets, bonecos chibi, estilo Funko, casais, famílias, lembranças e presentes feitos especialmente para você.</>, benefit: "Da ideia para a realidade", image: "/MF%20DESIGN%20Pictures/Personalizados(1).jpg", position: "center" },
   { n: "02", title: "02 — Modelagem e impressão 3D", text: <>Tem uma ideia, mas ainda não possui o arquivo 3D?<br /><br />Desenvolvemos o projeto e produzimos sua peça de acordo com as medidas, referências e necessidades apresentadas.<br /><br /></>, benefit: "Sua criação ganha forma", image: "/Modelagem.jpeg", position: "center" },
-  { n: "03", title: "03 — Brindes e projetos corporativos", text: <>Transforme sua marca em algo que seus clientes realmente queiram guardar.<br /><br />Criamos brindes personalizados, como baterias, chaveiros, porta-copos, porta-canetas, suportes, troféus, placas, displays e peças exclusivas para empresas, eventos e ações promocionais.<br /><br /></>, benefit: "Uma peça verdadeiramente sua", image: "/Placa_7.jpeg", position: "center" },
-  { n: "04", title: "04 — Projeto técnico", text: <>Algumas ideias não cabem em um catálogo — e é justamente aí que entramos.<br /><br />Criamos peças exclusivas a partir de referências, desenhos, medidas ou necessidades específicas.<br /><br />Se você consegue imaginar, converse com a gente sobre a possibilidade de transformar em 3D.</>, benefit: "Sua marca em forma de objeto", image: "/Corporativo_1.webp", position: "center" },
+  { n: "03", title: "03 — Brindes e projetos corporativos", text: <>Transforme sua marca em algo que seus clientes realmente queiram guardar.<br /><br />Criamos brindes personalizados, como baterias, chaveiros, porta-copos, porta-canetas, suportes, troféus, placas, displays e peças exclusivas para empresas, eventos e ações promocionais.<br /><br /></>, benefit: "Uma peça verdadeiramente sua", image: "/MF%20DESIGN%20Pictures/Brinde%20corporativo.jpg", position: "center" },
+  { n: "04", title: "04 — Projeto técnico", text: <>Algumas ideias não cabem em um catálogo — e é justamente aí que entramos.<br /><br />Criamos peças exclusivas a partir de referências, desenhos, medidas ou necessidades específicas.<br /><br />Se você consegue imaginar, converse com a gente sobre a possibilidade de transformar em 3D.</>, benefit: "Sua marca em forma de objeto", image: "/MF%20DESIGN%20Pictures/Pe%C3%A7a%20t%C3%A9cnica.jpg", position: "center" },
 ];
 
 const processSteps = [
@@ -94,27 +94,27 @@ const projectCarousels = [
     isMain: true,
     slides: [
       {
-        image: "/Boneco_7.webp",
+        image: "/MF%20DESIGN%20Pictures/Personalizados.jpg",
         tag: "PRESENTE PERSONALIZADO",
-        category: "MINIATURA E LEMBRANÇA",
-        title: "Boneco personalizado",
-        specs: "MODELAGEM SOB MEDIDA · DETALHES EXCLUSIVOS · PRESENTE ÚNICO",
+        category: "MINIATURA PERSONALIZADA",
+        title: "Miniatura esportiva personalizada",
+        specs: "PERSONAGEM SOB MEDIDA · DETALHES EXCLUSIVOS · PRESENTE ÚNICO",
         cropClass: "crop-a"
       },
       {
-        image: "/Corporativo_1.webp",
+        image: "/MF%20DESIGN%20Pictures/Pe%C3%A7a%20t%C3%A9cnica(1).jpg",
         tag: "PROJETOS TÉCNICOS",
         category: "PROJETOS TÉCNICOS",
-        title: "Personagem Pneumax",
-        specs: "IDENTIDADE VISUAL APLICADA · ESCULTURA 3D · PINTURA PERSONALIZADA",
+        title: "Componente técnico sob medida",
+        specs: "PROJETO PERSONALIZADO · PEÇA FUNCIONAL · IMPRESSÃO 3D",
         cropClass: "crop-c"
       },
       {
-        image: "/Corporativo_2_melhorado.webp",
+        image: "/MF%20DESIGN%20Pictures/Pe%C3%A7a%20t%C3%A9cnica.jpg",
         tag: "PROJETOS TÉCNICOS",
         category: "PROJETOS TÉCNICOS",
-        title: "Mascote PMX Pneus",
-        specs: "PERSONAGEM TEMÁTICO · ELEMENTOS DA MARCA · ACABAMENTO PREMIUM",
+        title: "Peça técnica funcional",
+        specs: "MODELAGEM SOB MEDIDA · PROJETO FUNCIONAL · ACABAMENTO PRECISO",
         cropClass: "crop-a"
       }
     ]
@@ -124,27 +124,27 @@ const projectCarousels = [
     isMain: false,
     slides: [
       {
-        image: "/Gatinho_otimizado.webp",
+        image: "/MF%20DESIGN%20Pictures/Sob%20encomenda.jpg",
         tag: "SOB ENCOMENDA",
-        category: "HOMENAGEM PERSONALIZADA",
-        title: "Heroína dos Gatinhos",
-        specs: "MINIATURA TEMÁTICA · MEDALHA PERSONALIZADA · PINTURA COLORIDA",
+        category: "ACESSÓRIOS PERSONALIZADOS",
+        title: "Kit de porta-copos cítricos",
+        specs: "PEÇAS COLORIDAS · DESIGN EXCLUSIVO · FEITO SOB ENCOMENDA",
         cropClass: "crop-b"
       },
       {
-        image: "/Cachorrosoucachorronao_otimizado.webp",
+        image: "/MF%20DESIGN%20Pictures/Sob%20encomenda(1).jpg",
         tag: "SOB ENCOMENDA",
-        category: "PERSONALIZAÇÃO PET",
-        title: "Memorial personalizado do seu pet",
-        specs: "MINIATURA REALISTA · QUADRO ILUSTRADO · BASE DECORATIVA",
+        category: "ACESSÓRIOS PERSONALIZADOS",
+        title: "Porta-copos com olho grego",
+        specs: "CONJUNTO PERSONALIZADO · SUPORTE INCLUSO · FEITO SOB ENCOMENDA",
         cropClass: "crop-a"
       },
       {
-        image: "/Boneco_9_otimizado.webp",
+        image: "/MF%20DESIGN%20Pictures/Sob%20encomenda(2).jpg",
         tag: "SOB ENCOMENDA",
-        category: "MINIATURA SOB MEDIDA",
-        title: "Retrato em miniatura",
-        specs: "PERSONAGEM PERSONALIZADO · ACESSÓRIO MODELADO · BASE ILUSTRADA",
+        category: "PEÇA FUNCIONAL PERSONALIZADA",
+        title: "Componente técnico personalizado",
+        specs: "FORMATO SOB MEDIDA · IMPRESSÃO 3D · FEITO SOB ENCOMENDA",
         cropClass: "crop-a"
       }
       
@@ -155,19 +155,19 @@ const projectCarousels = [
     isMain: false,
     slides: [
       {
-        image: "/Corporativo_1.webp",
-        tag: "PROJETOS TÉCNICOS",
-        category: "PROJETOS TÉCNICOS",
-        title: "Personagem Pneumax",
-        specs: "IDENTIDADE VISUAL APLICADA · ESCULTURA 3D · PINTURA PERSONALIZADA",
+        image: "/MF%20DESIGN%20Pictures/Brinde%20corporativo(2).jpg",
+        tag: "BRINDES CORPORATIVOS",
+        category: "BRINDES PERSONALIZADOS",
+        title: "Bateria personalizada Heliar",
+        specs: "MARCA EM DESTAQUE · DESIGN EXCLUSIVO · BRINDE CORPORATIVO",
         cropClass: "crop-c"
       },
       {
-        image: "/Corporativo_2_melhorado.webp",
-        tag: "PROJETOS TÉCNICOS",
-        category: "PROJETOS TÉCNICOS",
-        title: "Mascote PMX Pneus",
-        specs: "PERSONAGEM TEMÁTICO · ELEMENTOS DA MARCA · ACABAMENTO PREMIUM",
+        image: "/MF%20DESIGN%20Pictures/Brinde%20corporativo(3).jpg",
+        tag: "BRINDES CORPORATIVOS",
+        category: "BRINDES PERSONALIZADOS",
+        title: "Placa institucional personalizada",
+        specs: "IDENTIDADE VISUAL · DESIGN SOB MEDIDA · PEÇA CORPORATIVA",
         cropClass: "crop-a"
       }
     ]
@@ -194,15 +194,13 @@ function ProjectCard({ project, onOpenGallery }: { project: typeof projectCarous
   };
 
   const active = project.slides[current];
-  const alignImageTop = ["Retrato em miniatura", "Mascote PMX Pneus", "Personagem Pneumax"].includes(active.title);
 
   return (
     <article className={`project ${project.isMain ? "project-main" : ""} reveal`}>
       <div className={`project-image ${active.cropClass}`}>
         <button className="project-image-trigger" type="button" aria-label={`Ampliar imagem: ${active.title}`} onClick={(event) => onOpenGallery(active.image, event.currentTarget)}>
           <img
-            className={`project-image-media object-cover ${alignImageTop ? "md:object-top" : ""}`}
-            style={alignImageTop ? { objectPosition: "center top" } : undefined}
+            className="project-image-media object-cover"
             src={active.image}
             alt={active.title}
           />

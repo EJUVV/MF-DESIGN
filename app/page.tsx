@@ -108,6 +108,14 @@ const projectCarousels = [
         title: "Miniatura de pet personalizada",
         specs: "RETRATO DO SEU PET · ACESSÓRIO EXCLUSIVO · PRESENTE ÚNICO",
         cropClass: "crop-c"
+      },
+      {
+        image: "/Boneco_9_otimizado.webp",
+        tag: "PRESENTE PERSONALIZADO",
+        category: "BONECO PERSONALIZADO",
+        title: "Boneco personalizado sob medida",
+        specs: "PERSONAGEM EXCLUSIVO · DETALHES PERSONALIZADOS · PRESENTE ÚNICO",
+        cropClass: "crop-a"
       }
     ]
   },
@@ -129,6 +137,14 @@ const projectCarousels = [
         category: "ACESSÓRIOS PERSONALIZADOS",
         title: "Porta-copos com olho grego",
         specs: "CONJUNTO PERSONALIZADO · SUPORTE INCLUSO · FEITO SOB ENCOMENDA",
+        cropClass: "crop-a"
+      },
+      {
+        image: "/MF%20DESIGN%20Pictures/Brinde%20corporativo(2).jpg",
+        tag: "SOB ENCOMENDA",
+        category: "PEÇA PERSONALIZADA",
+        title: "Bateria personalizada em 3D",
+        specs: "PROJETO SOB MEDIDA · IDENTIDADE VISUAL · IMPRESSÃO 3D",
         cropClass: "crop-a"
       }
     ]

@@ -210,6 +210,8 @@ function ProjectCard({ project, onOpenGallery }: { project: typeof projectCarous
             className="project-image-media object-cover"
             src={active.image}
             alt={active.title}
+            loading="lazy"
+            decoding="async"
           />
         </button>
         <span>{active.tag}</span>
@@ -228,9 +230,12 @@ function ProjectCard({ project, onOpenGallery }: { project: typeof projectCarous
             </button>
             <div className="carousel-dots">
               {project.slides.map((_, idx) => (
-                <span
+                <button
                   key={idx}
+                  type="button"
                   className={`dot ${idx === current ? "active" : ""}`}
+                  aria-label={`Exibir projeto ${idx + 1} de ${project.slides.length}: ${project.slides[idx].title}`}
+                  aria-current={idx === current ? "true" : undefined}
                   onClick={(e) => {
                     e.stopPropagation();
                     setCurrent(idx);

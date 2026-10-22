@@ -41,3 +41,14 @@ npm.cmd run build
 Importe o repositório na Vercel. O framework Next.js e os comandos de build
 são detectados automaticamente, portanto não é necessário preencher
 configurações adicionais.
+
+## Requisitos para publicação na Hostinger
+
+A página inicial é renderizada dinamicamente no servidor para montar os
+metadados Open Graph a partir do host da requisição. Publique como aplicação
+Next.js/Node.js; hospedagem somente estática não é compatível com a configuração
+atual. O ambiente precisa atender à versão Node.js definida em `package.json`.
+
+O domínio definitivo ainda precisa ser definido antes de configurar a URL
+canônica e gerar um sitemap com endereços corretos. Não publique um sitemap com
+URLs de localhost ou de preview.

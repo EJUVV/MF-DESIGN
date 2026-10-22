@@ -290,7 +290,11 @@ function ServicesCarousel({ onOpenGallery }: { onOpenGallery: (src: string, trig
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
-  const servicePages = [services.slice(0, 2), services.slice(2, 4)];
+  const [itemsPerPage, setItemsPerPage] = useState(2);
+  const servicePages = Array.from(
+    { length: Math.ceil(services.length / itemsPerPage) },
+    (_, pageIndex) => services.slice(pageIndex * itemsPerPage, (pageIndex + 1) * itemsPerPage),
+  );
 
   const prevSlide = () => {
     setCurrent((prev) => Math.max(0, prev - 1));
@@ -299,6 +303,18 @@ function ServicesCarousel({ onOpenGallery }: { onOpenGallery: (src: string, trig
   const nextSlide = () => {
     setCurrent((prev) => Math.min(servicePages.length - 1, prev + 1));
   };
+
+  useEffect(() => {
+    const mobileViewport = window.matchMedia("(max-width: 640px)");
+    const updateItemsPerPage = () => {
+      setItemsPerPage(mobileViewport.matches ? 1 : 2);
+      setCurrent(0);
+    };
+
+    updateItemsPerPage();
+    mobileViewport.addEventListener("change", updateItemsPerPage);
+    return () => mobileViewport.removeEventListener("change", updateItemsPerPage);
+  }, []);
 
   useEffect(() => {
     const carousel = carouselRef.current;

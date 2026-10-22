@@ -547,3 +547,21 @@ footer{border-top:1px solid #263c50}
     mask-image:linear-gradient(to bottom,transparent 0%,#000 18%,#000 82%,transparent 100%);
   }
 }
+
+.crop-model-box,
+.crop-model-character,
+.crop-model-component{
+  overflow:hidden;
+}
+.crop-model-box::after,
+.crop-model-character::after,
+.crop-model-component::after{
+  z-index:2;
+  background:linear-gradient(transparent 38%,rgba(9,21,34,.9));
+}
+.crop-model-box .project-image-media,
+.crop-model-character .project-image-media,
+.crop-model-component .project-image-media{
+  object-fit:cover;
+  object-position:center;
+}

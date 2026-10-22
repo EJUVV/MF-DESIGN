@@ -154,20 +154,28 @@ const projectCarousels = [
     isMain: false,
     slides: [
       {
-        image: "/MF%20DESIGN%20Pictures/Pe%C3%A7a%20t%C3%A9cnica(1).jpg",
-        tag: "PROJETOS TÉCNICOS",
-        category: "PROJETOS TÉCNICOS",
-        title: "Peça técnica funcional",
-        specs: "PROJETO PERSONALIZADO · PEÇA FUNCIONAL · IMPRESSÃO 3D",
-        cropClass: "crop-c"
+        image: "/MF%20DESIGN%20Pictures/mod1-wide.png",
+        tag: "MODELAGEM",
+        category: "MODELAGEM 3D",
+        title: "Caixa personalizada sob medida",
+        specs: "PROJETO PERSONALIZADO · MODELAGEM FUNCIONAL · IMPRESSÃO 3D",
+        cropClass: "crop-model-box"
       },
       {
-        image: "/MF%20DESIGN%20Pictures/Pe%C3%A7a%20t%C3%A9cnica.jpg",
-        tag: "PROJETOS TÉCNICOS",
-        category: "PROJETOS TÉCNICOS",
-        title: "Componente técnico sob medida",
+        image: "/MF%20DESIGN%20Pictures/mod2-wide.png",
+        tag: "MODELAGEM",
+        category: "MODELAGEM 3D",
+        title: "Personagem personalizado",
+        specs: "PERSONAGEM SOB MEDIDA · DETALHES EXCLUSIVOS · MODELAGEM 3D",
+        cropClass: "crop-model-character"
+      },
+      {
+        image: "/MF%20DESIGN%20Pictures/mod3-wide.png",
+        tag: "MODELAGEM",
+        category: "MODELAGEM 3D",
+        title: "Componente sob medida",
         specs: "MODELAGEM SOB MEDIDA · PROJETO FUNCIONAL · ACABAMENTO PRECISO",
-        cropClass: "crop-a"
+        cropClass: "crop-model-component"
       }
     ]
   }
@@ -276,9 +284,11 @@ function InstagramIcon({ size = 22 }: { size?: number }) {
 }
 
 function ServicesCarousel({ onOpenGallery }: { onOpenGallery: (src: string, trigger: HTMLElement) => void }) {
+  const carouselRef = useRef<HTMLDivElement>(null);
   const [current, setCurrent] = useState(0);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const servicePages = [services.slice(0, 2), services.slice(2, 4)];
 
@@ -291,12 +301,25 @@ function ServicesCarousel({ onOpenGallery }: { onOpenGallery: (src: string, trig
   };
 
   useEffect(() => {
-    if (isHovered || current === servicePages.length - 1) return;
+    const carousel = carouselRef.current;
+    if (!carousel) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { threshold: 0.35 },
+    );
+
+    observer.observe(carousel);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible || isHovered || current === servicePages.length - 1) return;
     const timer = window.setTimeout(() => {
       setCurrent((prev) => Math.min(servicePages.length - 1, prev + 1));
     }, 5000);
     return () => window.clearTimeout(timer);
-  }, [current, isHovered, servicePages.length]);
+  }, [current, isHovered, isVisible, servicePages.length]);
 
   const handleTouchStart = (e: React.TouchEvent) => {
     setTouchEnd(null);
@@ -318,7 +341,8 @@ function ServicesCarousel({ onOpenGallery }: { onOpenGallery: (src: string, trig
   };
 
   return (
-    <div 
+    <div
+      ref={carouselRef}
       className="services-carousel-container reveal"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}

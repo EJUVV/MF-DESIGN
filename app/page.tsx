@@ -523,13 +523,13 @@ export default function Home() {
   const handleWhatsAppSubmit = (e: FormEvent) => {
     e.preventDefault();
     const text = `Olá! Meu nome é *${name}*.${service ? `\n*Serviço de interesse:* ${service}` : ""}${idea ? `\n\n*Detalhes da ideia:* ${idea}` : ""}`;
-    const url = `https://wa.me/5527997845945?text=${encodeURIComponent(text)}`;
+    const url = `https://wa.me/5527999170205?text=${encodeURIComponent(text)}`;
     window.open(url, "_blank");
   };
   return <main>
     <header ref={headerRef} className={`header ${solid ? "solid" : ""} ${isHome ? "home" : ""} ${isScrolling ? "scrolling" : ""} ${menu ? "open" : ""}`}>
       <nav id="main-navigation" aria-label="Navegação principal" aria-hidden={!menu}><a href="#inicio" onClick={() => setMenu(false)}>Início</a><a href="#sobre" onClick={() => setMenu(false)}>Sobre nós</a><a href="#servicos" onClick={() => setMenu(false)}>Serviços</a><a href="#portfolio" onClick={() => setMenu(false)}>Portfólio</a><a href="https://www.google.com/search?sca_esv=9d29e6ff159d06e4&sxsrf=APpeQntNHpeGsUEcr_B1AwkLvtR_yH0q9A:1786975096582&kgmid=/g/11yqxxrc6r&q=MF+Design+e+Modelagem+3D+-+Impress%C3%A3o+3D+Personalizada&shem=dlvs1,epsd1,ltae,rimspwouoe&shndl=30&source=sh/x/loc/uni/m1/1&kgs=05bfb0987bfaa6de&utm_source=dlvs1,epsd1,ltae,rimspwouoe,sh/x/loc/uni/m1/1" target="_blank" rel="noreferrer" onClick={() => setMenu(false)}>Avaliações</a><a href="#contato" onClick={() => setMenu(false)}>Contato</a></nav>
-      <a className="button button-gold header-cta" href="https://wa.me/5527997845945" target="_blank" rel="noreferrer"><WhatsappIcon /> Quero transformar minha ideia em 3D <span>↗</span></a>
+      <a className="button button-gold header-cta" href="https://wa.me/5527999170205" target="_blank" rel="noreferrer"><WhatsappIcon /> Quero transformar minha ideia em 3D <span>↗</span></a>
       <button className="menu" type="button" aria-label={menu ? "Fechar menu" : "Abrir menu"} aria-controls="main-navigation" aria-expanded={menu} onClick={() => setMenu(!menu)}><i /><i /><i /></button>
     </header>
 
@@ -547,7 +547,7 @@ export default function Home() {
         </span>
         <h1>Você imagina,<br /><span>a gente dá forma.</span></h1>
         <p className="hero-text">Transformamos fotos, ideias, referências e projetos em peças únicas por meio da modelagem e impressão 3D.</p>
-        <div className="actions"><a className="button button-gold" href="https://wa.me/5527997845945" target="_blank" rel="noreferrer"><WhatsappIcon /> Quero transformar minha ideia em 3D <span>↗</span></a></div>
+        <div className="actions"><a className="button button-gold" href="https://wa.me/5527999170205" target="_blank" rel="noreferrer"><WhatsappIcon /> Quero transformar minha ideia em 3D <span>↗</span></a></div>
       </div>
       <div className="hero-spec"><span></span><span></span></div>
     </section>
@@ -599,7 +599,7 @@ export default function Home() {
             <p>Veja algumas peças que já transformamos em realidade.</p>
           </div>
         </div>
-        <a href="https://wa.me/5527997845945" target="_blank" rel="noreferrer">QUERO FAZER O MEU PROJETO <span>→</span></a>
+        <a href="https://wa.me/5527999170205" target="_blank" rel="noreferrer">QUERO FAZER O MEU PROJETO <span>→</span></a>
       </div>
       <div className="project-grid">
         {projectCarousels.map((p) => (
@@ -873,7 +873,7 @@ export default function Home() {
         </div>
         <div>
           <span>CONTATO</span>
-          <a href="https://wa.me/5527997845945" target="_blank" rel="noreferrer">WhatsApp</a>
+          <a href="https://wa.me/5527999170205" target="_blank" rel="noreferrer">WhatsApp</a>
           <a href="https://www.instagram.com/mfdesign_model/" target="_blank" rel="noreferrer">Instagram</a>
           <a href="mailto:contato@mfdesign.com.br">E-mail</a>
         </div>
@@ -885,7 +885,7 @@ export default function Home() {
       </div>
     </footer>
 
-    <a className="floating" href="https://wa.me/5527997845945" target="_blank" rel="noreferrer" aria-label="Falar conosco pelo WhatsApp">
+    <a className="floating" href="https://wa.me/5527999170205" target="_blank" rel="noreferrer" aria-label="Falar conosco pelo WhatsApp">
       <WhatsappIcon size={28} />
     </a>
 
